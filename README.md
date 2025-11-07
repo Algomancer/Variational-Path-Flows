@@ -7,7 +7,7 @@ This was an attempt to formulated infinite resolution / continous latent sde vec
 
 Again, this is a first pass. I'll be thinking about this a bit more.
 
-Exact path-likelihood latent sequence model with conditional observation flow:
+The current varient is an exact path-likelihood latent sequence model with conditional observation flow:
     z_t = f_t(y_t),  y_t follows a diagonal Ornstein–Uhlenbeck process, conditioned on y_0 
     p(z_0) is a learned diagonal Gaussian in z-space.
     x_t = g(u_t ; z_t),  u_t ~ N(0, I)  (conditional normalizing flow observation)

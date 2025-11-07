@@ -10,11 +10,16 @@ This was an attempt to formulated infinite resolution / continous latent sde vec
 Again, this is a first pass. I'll be thinking about this a bit more.
 
 The current varient is an exact path-likelihood latent sequence model with conditional observation flow:
+    
     z_t = f_t(y_t),  y_t follows a diagonal Ornstein–Uhlenbeck process, conditioned on y_0 
+    
     p(z_0) is a learned diagonal Gaussian in z-space.
+    
     x_t = g(u_t ; z_t),  u_t ~ N(0, I)  (conditional normalizing flow observation)
+    
  Loss:
-   E_q[ sum_t log p(x_t|z_t) + log p(z0) + log p(z_{1:T}|z0) - log q(z_{0:T}|x) ]
+ 
+   `E_q[ sum_t log p(x_t|z_t) + log p(z0) + log p(z_{1:T}|z0) - log q(z_{0:T}|x) ]`
 
 Not really thinking about the rest of the archecture, just the objective formulation. You can replace any of it with task specific archectures.
 

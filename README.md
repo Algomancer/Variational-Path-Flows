@@ -1,5 +1,7 @@
 # Variational Path Flows
 
+`vpf.py for the goods`
+
 I've been trying to share more, since I tend to just solo hack and don't end up showing people stuff, and I am never going be the guy who writes papers.
 This is still a work in progress, but directionally it is what I was thinking about on my walk this morning.
 

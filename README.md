@@ -19,19 +19,19 @@ The current varient is an exact path-likelihood latent sequence model with condi
 Not really thinking about the rest of the archecture, just the objective formulation. You can replace any of it with task specific archectures.
 
 - **`prior_flow = NF_SDE_Model(...)`**  
-  Time-conditioned RealNVP mapping \( y_t \leftrightarrow z_t \); base dynamics is diagonal OU SDE in y-space; exact path log-likelihood via change-of-variables.
+  Time-conditioned RealNVP mappin; base dynamics is diagonal OU SDE in y-space; exact path log-likelihood via change-of-variables.
 
 - **`z0_prior = PriorInitDistribution(...)`**  
-  Learned diagonal Gaussian over \( z_0 \) (trainable mean/scale).
+  Learned diagonal Gaussian over  z_0 (trainable mean/scale).
 
 - **`p_obs_flow = ObservationFlow(...)`**  
-  Conditional RealNVP likelihood \( p(x_t | z_t) \): invertible \( x \leftrightarrow u \) given \( z_t \) with tractable log-det.
+  Conditional RealNVP likelihood p(x_t | z_t): invertible given z_t with tractable log-det.
 
 - **`q_enc = PosteriorEncoder(...)`**  
   Sequence encoder producing global + per-step context. 
 
 - **`q_affine = PosteriorAffine(...)`**  
-  Time-adaptive affine Gaussian head: (\( \mu_t, \sigma_t \)) for \( q(z_t | x, t) \) from encoder context + scalar time.
+  Time-adaptive affine Gaussian head: mu_t, sigma_t for  q(z_t | x, t) from encoder context + scalar time.
 
 Grigory Bartosh and his team did some very relevant work, but doesn't attempt to do single pass inference. But its great alternative if you don't need this. 
 `https://arxiv.org/abs/2502.02472`
